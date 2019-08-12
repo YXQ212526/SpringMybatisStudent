@@ -65,15 +65,9 @@ public class LogAop {
       } else if (obj instanceof Score) {
         Score score = (Score) obj;
         stringBuilder.append(score.getStudentId());
-      } else if(obj instanceof Integer){
+      } else if (obj instanceof Integer) {
         stringBuilder.append(obj);
       }
-    }
-
-    String mname = joinPoint.getSignature().getName();
-    StringBuilder sb = new StringBuilder();
-    if (mname.equals("select")) {
-      sb.append("[$$$$]查询s");
     }
 
     logger.info(joinPoint.getSignature().getDeclaringType().getName()

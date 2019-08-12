@@ -16,8 +16,6 @@
     <property name="password" value="Yxq12345!"></property>
   </bean>
 
-  <!--<bean id="jdbcTemplata" class="org.springframework.jdbc.core.JdbcTemplate">-->
-  <!--<property name="dataSource" ref="datasource"></property>-->
   <bean id="sqlSenssionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
     <property name="dataSource" ref="datasource"></property>
     <property name="configLocation" value="mybatis.xml"></property>
