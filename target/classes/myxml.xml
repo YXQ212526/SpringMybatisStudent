@@ -16,9 +16,17 @@
     <property name="password" value="Yxq12345!"></property>
   </bean>
 
-  <bean id="jdbcTemplata" class="org.springframework.jdbc.core.JdbcTemplate">
+  <!--<bean id="jdbcTemplata" class="org.springframework.jdbc.core.JdbcTemplate">-->
+  <!--<property name="dataSource" ref="datasource"></property>-->
+  <bean id="sqlSenssionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
     <property name="dataSource" ref="datasource"></property>
+    <property name="configLocation" value="mybatis.xml"></property>
   </bean>
-  <context:component-scan base-package="dao"/>
+  <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
+    <property name="basePackage" value="dao"/>
+    <property name="sqlSessionFactoryBeanName" value="sqlSenssionFactory"/>
+  </bean>
+
+  <!--<context:component-scan base-package="dao"/>-->
   <context:component-scan base-package="aop"/>
 </beans>

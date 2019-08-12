@@ -1,7 +1,6 @@
 package aop;
 
 
-
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.annotation.AfterThrowing;
 import org.aspectj.lang.annotation.Aspect;
@@ -63,15 +62,23 @@ public class LogAop {
       } else if (obj instanceof Course) {
         Course course = (Course) obj;
         stringBuilder.append(course.getName());
-      } else {
+      } else if (obj instanceof Score) {
         Score score = (Score) obj;
         stringBuilder.append(score.getStudentId());
+      } else if(obj instanceof Integer){
+        stringBuilder.append(obj);
       }
     }
 
-    logger.info(  joinPoint.getSignature().getDeclaringType().getName()
-        +" will "+ joinPoint.getSignature().getName()
-        + " :"+stringBuilder);
+    String mname = joinPoint.getSignature().getName();
+    StringBuilder sb = new StringBuilder();
+    if (mname.equals("select")) {
+      sb.append("[$$$$]查询s");
+    }
+
+    logger.info(joinPoint.getSignature().getDeclaringType().getName()
+        + " will " + joinPoint.getSignature().getName()
+        + " :" + stringBuilder);
   }
 
 }

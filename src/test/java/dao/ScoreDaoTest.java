@@ -9,6 +9,7 @@ import org.junit.FixMethodOrder;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.MethodSorters;
+import org.springframework.stereotype.Component;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
@@ -17,9 +18,8 @@ import pojo.Score;
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration("classpath*:myxml.xml")
 @FixMethodOrder(MethodSorters.NAME_ASCENDING)
-
+@Component
 public class ScoreDaoTest {
-
 
   @Resource
   ScoreDao scoreDao;
@@ -85,6 +85,7 @@ public class ScoreDaoTest {
   public void getGPA() {
     insert();
     Assert.assertEquals(scoreDao.GPA().size(), 3);
+
     Assert.assertEquals(scoreDao.GPA().get(0).getStudent().getName(), "jim");
     Assert.assertEquals(scoreDao.GPA().get(1).getStudent().getId(), 2);
     Assert.assertTrue(scoreDao.GPA().get(2).getGpa() == 2);

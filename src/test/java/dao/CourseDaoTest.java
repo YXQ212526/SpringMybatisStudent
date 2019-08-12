@@ -18,7 +18,6 @@ import pojo.Course;
 @ContextConfiguration("classpath*:myxml.xml")
 @FixMethodOrder(MethodSorters.NAME_ASCENDING)
 @Component
-@ComponentScan(basePackageClasses = CourseDaoTest.class)
 public class CourseDaoTest {
 
   @Resource

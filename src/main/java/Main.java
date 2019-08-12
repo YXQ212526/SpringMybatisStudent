@@ -12,6 +12,7 @@ import org.springframework.context.annotation.AnnotationConfigApplicationContext
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.context.support.FileSystemXmlApplicationContext;
 import pojo.Course;
+import pojo.Score;
 import pojo.StuCourScor;
 import pojo.Student;
 
@@ -36,26 +37,34 @@ public class Main {
     //  studentDao.delete(1);
     //studentDao.close();
     ApplicationContext context = new ClassPathXmlApplicationContext("myxml.xml");
-    CourseDao courseDao = (CourseDao) context.getBean("courseDao");
-//    // Course course=courseDao.select(1);
-//    //System.out.println(course.getName());
+//    CourseDao courseDao = (CourseDao) context.getBean("courseDao");
+//    Course course=courseDao.select(1);
+//    System.out.println(course.getName());
 ////courseDao.update(1,"xx");
 //   // courseDao.delete(2);
 //    Course course = new Course();
 //    course.setId(6);
 //    course.setName("movie");
 //    courseDao.insert(course);
-    ScoreDao scoreDao = context.getBean(ScoreDao.class);
+   //  ScoreDao scoreDao = context.getBean(ScoreDao.class);
 ////    //  List<StuCourScor> list=scoreDao.getTop10();
-    List<StuCourScor> list = scoreDao.select(2, 2019);
-    scoreDao.getTop10();
-    System.out.println(list.get(0).getScore().getGoal());
-//    StudentDao studentDao = context.getBean(StudentDao.class);
+   //  List<StuCourScor> list = scoreDao.select(1, 2019);
+    // scoreDao.getTop10();
+  //   System.out.println(list.get(0).getScore().getGoal());
+   StudentDao studentDao = context.getBean(StudentDao.class);
+  System.out.println( studentDao.select(2).getStatus());
+//    Score score =new Score();
+//    score.setGoal(98);
+//    score.setYear(2019);
+//    score.setStudentId(1);
+//    score.setCourseId(6);
+//scoreDao.insert(score);
+  //  System.out.println(studentDao.select(1).getName());
 //    Student s = new Student();
-//    s.setName("jack");
-//    s.setId(5);
+//    s.setName("kate");
 //    s.setStatus(0);
 //    studentDao.insert(s);
+
 
   }
 }

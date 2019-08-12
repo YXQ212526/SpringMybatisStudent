@@ -29,6 +29,11 @@ public class Student {
     this.name = name;
   }
 
+
+  public void setStatus(String status) {
+    this.status = status;
+  }
+
   public void setStatus(int type) {
     String status = Status.get(type);
     this.status = status;

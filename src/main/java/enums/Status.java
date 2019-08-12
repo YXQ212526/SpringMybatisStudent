@@ -1,6 +1,6 @@
 package enums;
 
-public enum Status {
+public  enum Status {
 
   NORAML(0,"正常"),
   VACATION(1,"放假"),
@@ -9,6 +9,7 @@ public enum Status {
   private String status;
   private int type;
   Status(int type,String status) {
+    this.type=type;
     this.status = status;
   }
   public static String get(int type)

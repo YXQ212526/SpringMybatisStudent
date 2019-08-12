@@ -6,6 +6,7 @@ public class StuCourScor {
   private Course course;
   private Score score;
   private double gpa;
+  private int total;
 
   public double getGpa() {
     return gpa;
@@ -23,7 +24,7 @@ public class StuCourScor {
     this.total = total;
   }
 
-  private int total;
+
 
   public Student getStudent() {
     return student;
